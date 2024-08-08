@@ -3,17 +3,25 @@ import React from 'react';
 interface CheckboxProps {
   size: number;
   index: number;
-  color?: string;
+  col: number;
+  row: number;
+  top: number;
+  left: number;
+  color: string | null;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({ size, index, color }) => {
+export const Checkbox: React.FC<CheckboxProps> = ({ size, index, col, row, color, top, left }) => {
   const checkboxSize = (size * 3) / 5;
   return (
     <div
       style={{
-        position: 'relative',
-        width: size,
-        height: size,
+        position: 'absolute',
+        top,
+        left,
+        minWidth: size,
+        maxWidth: size,
+        minHeight: size,
+        maxHeight: size,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -28,6 +36,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({ size, index, color }) => {
           zIndex: 1,
         }}
       />
+
       <div
         style={{
           position: 'absolute',

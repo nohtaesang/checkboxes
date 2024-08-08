@@ -4,7 +4,8 @@ import { CheckboxList } from './components/CheckboxList';
 
 function App() {
   const [checkboxSize, setCheckboxSize] = useState(40);
-  const [checkboxCount, setCheckboxCount] = useState(100000);
+  const [checkboxCount, setCheckboxCount] = useState(1000000);
+
   const list = useMemo(() => {
     return generateList(checkboxCount);
   }, [checkboxCount]);
@@ -24,7 +25,7 @@ function App() {
 export default App;
 
 function generateList(count: number) {
-  const list: { index: number; value: boolean; color: string | null }[] = [];
+  const list: { index: number; color: string | null }[] = [];
   const colors = ['red', 'green', 'blue'];
 
   for (let i = 0; i < count; i++) {
@@ -35,7 +36,6 @@ function generateList(count: number) {
     }
     list.push({
       index: i,
-      value: false,
       color: color,
     });
   }

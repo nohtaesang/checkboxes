@@ -8,9 +8,11 @@ interface CheckboxProps {
   top: number;
   left: number;
   color: string | null;
+  focused: boolean;
+  onClick: (nextChecked: boolean) => void;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({ size, index, col, row, color, top, left }) => {
+export const Checkbox: React.FC<CheckboxProps> = ({ size, index, col, row, color, top, left, focused, onClick }) => {
   const checkboxSize = (size * 3) / 5;
   return (
     <div
@@ -25,6 +27,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({ size, index, col, row, color
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        background: focused ? 'blue' : 'white',
       }}
     >
       <input
@@ -34,6 +37,10 @@ export const Checkbox: React.FC<CheckboxProps> = ({ size, index, col, row, color
           width: checkboxSize,
           height: checkboxSize,
           zIndex: 1,
+        }}
+        onClick={(e) => {
+          // @ts-ignore
+          onClick(!e.target.checked);
         }}
       />
 

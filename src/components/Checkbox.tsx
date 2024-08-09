@@ -1,60 +1,50 @@
 import React from 'react';
+import { DEFAULT_COLOR } from '../utils/generateList';
 
 interface CheckboxProps {
   size: number;
   index: number;
-  col: number;
-  row: number;
-  top: number;
-  left: number;
-  color: string | null;
+  color: string;
   focused: boolean;
   onClick: (nextChecked: boolean) => void;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({ size, index, col, row, color, top, left, focused, onClick }) => {
+export const Checkbox: React.FC<CheckboxProps> = ({ size, index, color, focused, onClick }) => {
   const checkboxSize = (size * 3) / 5;
-  return (
-    <div
-      style={{
-        position: 'absolute',
-        top,
-        left,
-        minWidth: size,
-        maxWidth: size,
-        minHeight: size,
-        maxHeight: size,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: focused ? 'blue' : 'white',
-      }}
-    >
-      <input
-        type="checkbox"
-        id={`checkbox-${index}`}
-        style={{
-          width: checkboxSize,
-          height: checkboxSize,
-          zIndex: 1,
-        }}
-        onClick={(e) => {
-          // @ts-ignore
-          onClick(!e.target.checked);
-        }}
-      />
+  const isDefaultColor = color === DEFAULT_COLOR;
 
-      <div
-        style={{
-          position: 'absolute',
-          width: checkboxSize + 5,
-          height: checkboxSize + 5,
-          background: color || 'transparent',
-          borderRadius: 4,
-          boxSizing: 'border-box',
-          zIndex: 0,
-        }}
-      />
+  const handleCheckboxClick = (e: React.MouseEvent<HTMLInputElement>) => {
+    onClick(!(e.target as HTMLInputElement).checked);
+  };
+
+  const containerStyle: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: size,
+    height: size,
+    backgroundColor: !focused ? 'transparent' : 'rgba(0, 255, 255, 0.3)',
+    position: 'relative', // Ensure the background div positions correctly
+  };
+
+  const checkboxStyle: React.CSSProperties = {
+    width: checkboxSize,
+    height: checkboxSize,
+    zIndex: 1,
+  };
+
+  const backgroundStyle: React.CSSProperties = {
+    position: 'absolute',
+    width: checkboxSize + 9,
+    height: checkboxSize + 9,
+    borderRadius: 4,
+    backgroundColor: isDefaultColor ? 'transparent' : color,
+  };
+
+  return (
+    <div style={containerStyle}>
+      <input type="checkbox" id={`checkbox-${index}`} style={checkboxStyle} onClick={handleCheckboxClick} />
+      <div style={backgroundStyle} />
     </div>
   );
 };

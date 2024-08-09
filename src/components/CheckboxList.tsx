@@ -11,10 +11,13 @@ type CheckboxListProps = {
 export function CheckboxList({ checkboxSize, checkboxList }: CheckboxListProps) {
   const ref = useRef<HTMLDivElement>(null);
 
+  // TODO: Implement handleClickJump
   const handleClickJump = (inputValue: string) => {};
 
+  // TODO: Implement handleClickCheckbox
   const handleClickCheckbox = (index: number) => {};
 
+  // TODO: Implement handleClickDrawDiamond (Optional)
   const handleClickDrawDiamond = () => {};
 
   return (
@@ -36,7 +39,6 @@ export function CheckboxList({ checkboxSize, checkboxList }: CheckboxListProps) 
   );
 }
 
-// 스타일 객체들을 분리하여 재사용 가능하도록 설정합니다.
 const containerStyle: React.CSSProperties = {
   position: 'relative',
   display: 'flex',

@@ -24,7 +24,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({ size, index, color, focused,
     width: size,
     height: size,
     backgroundColor: !focused ? 'transparent' : 'rgba(0, 255, 255, 0.3)',
-    position: 'relative', // Ensure the background div positions correctly
+    position: 'relative',
   };
 
   const checkboxStyle: React.CSSProperties = {

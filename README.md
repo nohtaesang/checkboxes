@@ -1,46 +1,40 @@
-# Getting Started with Create React App
+### 면접 과제: 1,000,000개의 체크박스를 렌더링하기
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### 과제 설명:
 
-## Available Scripts
+이 과제에서는 1,000,000개의 체크박스를 성능 저하 없이 효과적으로 렌더링하는 컴포넌트를 구현합니다. 다음 요구사항에 맞추어 `CheckboxList.tsx` 파일을 수정해 주시기 바랍니다.
 
-In the project directory, you can run:
+#### 요구사항:
 
-### `npm start`
+1. **1,000,000개의 Checkbox 렌더하기**:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+   - `CheckboxList.tsx` 파일을 수정하여 1,000,000개의 `Checkbox.tsx`를 그리드 형태로 렌더링합니다.
+   - 그리드는 브라우저의 가로 크기에 맞춰 자동으로 조정되어야 하며, 브라우저의 크기를 조절해도 체크박스는 가능한 한 많이 화면에 표시되어야 합니다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. **선택된 체크박스의 개수 렌더하기**:
 
-### `npm test`
+   - 체크된 체크박스의 색상별 갯수를 실시간으로 표시합니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **인덱스 기반 스크롤 이동**:
 
-### `npm run build`
+   - 화면에 있는 Input 창에 사용자가 특정 체크박스의 인덱스를 입력한 후, "Jump" 버튼을 누르면 해당 인덱스의 체크박스로 스크롤이 이동해야 합니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **다이아몬드 형태 체크 (선택 사항)**:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   - "Draw Diamond" 버튼을 누르면 현재 화면에 표시될 수 있는 최대 크기의 다이아몬드 형태로 체크박스가 체크됩니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. **라이브러리 사용 제한**:
 
-### `npm run eject`
+   - React와 같은 기본 라이브러리는 사용할 수 있지만, 그 외의 라이브러리 사용은 제한됩니다.
+   - 단, 스타일링 관련 라이브러리는 사용 가능합니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+6. **참고 사이트**:
+   - 과제 수행에 참고할 수 있도록 https://onemillioncheckboxes.com/ 사이트를 확인해 주세요.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### 참고 사항:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- 이 과제는 성능 최적화와 효율적인 렌더링이 중요한 요소입니다. 가능하면 필요한 부분에서 최적화 기법을 사용하시기 바랍니다.
+- 구현 방법에 제한은 없지만, 가독성과 성능을 고려하여 코드 작성에 신경 써 주시기 바랍니다.
+- **ChatGPT를 사용해도 되며,** 이를 활용하여 문제를 해결하는 것도 가능합니다.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+과제 완료 후 코드를 제출해 주세요.

@@ -1,44 +1,28 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import './App.css';
+import { generateColorList } from './utils/generateList';
 import { CheckboxList } from './components/CheckboxList';
 
-function App() {
-  const [checkboxSize, setCheckboxSize] = useState(40);
-  const [checkboxCount, setCheckboxCount] = useState(1000000);
+const CHECKBOX_SIZE = 40;
+const CHECKBOX_COUNT = 10;
 
+function App() {
   const list = useMemo(() => {
-    return generateList(checkboxCount);
-  }, [checkboxCount]);
+    return generateColorList(CHECKBOX_COUNT);
+  }, []);
 
   return (
     <div
       style={{
         position: 'relative',
         overflow: 'hidden',
+        width: '100vw',
+        height: '100vh',
       }}
     >
-      <CheckboxList checkboxSize={checkboxSize} checkboxList={list} />
+      <CheckboxList checkboxSize={CHECKBOX_SIZE} checkboxList={list} />
     </div>
   );
 }
 
 export default App;
-
-function generateList(count: number) {
-  const list: { index: number; color: string | null }[] = [];
-  const colors = ['red', 'green', 'blue'];
-
-  for (let i = 0; i < count; i++) {
-    let color = null;
-    if (Math.random() < 0.01) {
-      // 1% 확률로 color를 선택
-      color = colors[Math.floor(Math.random() * colors.length)];
-    }
-    list.push({
-      index: i,
-      color: color,
-    });
-  }
-
-  return list;
-}

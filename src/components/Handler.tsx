@@ -3,9 +3,10 @@ import { COLOR_LIST } from '../utils/generateList';
 
 type HandlerProps = {
   checkedCount?: Record<string, number>;
-  onClickGo: (inputValue: string) => void;
+  onClickJump: (inputValue: string) => void;
+  onClickDrawDiamond: () => void;
 };
-export function Handler({ checkedCount, onClickGo }: HandlerProps) {
+export function Handler({ checkedCount, onClickJump, onClickDrawDiamond }: HandlerProps) {
   const [inputValue, setInputValue] = useState('');
 
   return (
@@ -33,18 +34,19 @@ export function Handler({ checkedCount, onClickGo }: HandlerProps) {
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
-              onClickGo(inputValue);
+              onClickJump(inputValue);
             }
           }}
         />
         <button
           onClick={() => {
-            onClickGo(inputValue);
+            onClickJump(inputValue);
           }}
         >
-          Go
+          Jump
         </button>
       </div>
+      <button onClick={onClickDrawDiamond}>draw diamond</button>
     </div>
   );
 }

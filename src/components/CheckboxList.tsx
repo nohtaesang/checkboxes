@@ -11,13 +11,15 @@ type CheckboxListProps = {
 export function CheckboxList({ checkboxSize, checkboxList }: CheckboxListProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  const handleClickGo = (inputValue: string) => {};
+  const handleClickJump = (inputValue: string) => {};
 
   const handleClickCheckbox = (index: number) => {};
 
+  const handleClickDrawDiamond = () => {};
+
   return (
     <div style={containerStyle}>
-      <Handler onClickGo={handleClickGo} />
+      <Handler onClickJump={handleClickJump} onClickDrawDiamond={handleClickDrawDiamond} />
       <div ref={ref} style={checkboxContainerStyle}>
         {checkboxList.map(({ index, color }) => (
           <Checkbox
